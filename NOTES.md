@@ -16,5 +16,12 @@
 ## 3. Lists
 - Both `'(1 2 3)` and `(list 1 2 3)` are lists of 3 integers.
 - Lists are sequences of chained elements only the access to the first element is cheap.
+- What's the difference between `first` and `peek`? And between `rest` and `pop`? [SOLUTION] They are the same when applied to lists.
 - **[?]: What's `dracula` in the following list? A Symbol? `'(dracula)`**
-- **[?]: What's the difference between `first` and `peek`? And between `rest` and `pop`? [SOLUTION] They are the same when applied to lists.**
+
+## 4. Vectors
+- Vectors are arrays.
+- `vector element1 element2...` to build a new vector.
+- `vec '(list)` to create a vector from a list.
+- `conj` works differently in vectors and lists. In lists, the element is prepended. In vector, it's appended.
+- A list and a vector are equal if they have the same values (in the same order).
