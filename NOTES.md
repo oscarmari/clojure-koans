@@ -20,8 +20,11 @@
 - **[?]: What's `dracula` in the following list? A Symbol? `'(dracula)`**
 
 ## 4. Vectors
-- Vectors are arrays.
+- Vectors are arrays and can be defined with `[]`: `[1 2 3]`.
 - `vector element1 element2...` to build a new vector.
 - `vec '(list)` to create a vector from a list.
 - `conj` works differently in vectors and lists. In lists, the element is prepended. In vector, it's appended.
 - A list and a vector are equal if they have the same values (in the same order).
+
+## 5. Sets
+- Sets are mathematical sets (a collection without duplicates nor order) and they can be defined with `#{}`: `#{1 3 2}`.
