@@ -12,3 +12,9 @@
 ## 2. Strings
 - `str` is used to cast values to string and to concatenate strings: `(str 1)`, `(str "hello" 'world)`.
 - Characters are lead by `\`, for example: `\C`. But chars are not strings: `(not= \c "c")`.
+
+## 3. Lists
+- Both `'(1 2 3)` and `(list 1 2 3)` are lists of 3 integers.
+- Lists are sequences of chained elements only the access to the first element is cheap.
+- **[?]: What's `dracula` in the following list? A Symbol? `'(dracula)`**
+- **[?]: What's the difference between `first` and `peek`? And between `rest` and `pop`? [SOLUTION] They are the same when applied to lists.**
