@@ -67,14 +67,28 @@ By parameter value:
 (defmethod diet :default [_a] "I don't know what Rich Hickey eats.")
 ````
 
-## 12. Creating functions
-- `let [CONTEXT] EXPRESSION`: `let [x 5] (str "The value of x is " x)`
-- `comp` for composition. For example, get the square of a value and then add 2 `comp inc inc square`.
-
-
-
+## 12. Sequence comprehensions
 `(= 
     '(0 1 4)
      (for [x (range 30) :when (< x 3)] (* x x)))`
 
-## 13. Sequence comprehensions
+## 13. Creating functions
+- `let [CONTEXT] EXPRESSION`: `let [x 5] (str "The value of x is " x)`
+- `comp` for composition. For example, get the square of a value and then add 2 `comp inc inc square`.
+
+## 14. Recursion
+Regular:
+````
+(defn factorial [n]
+  (if (= n 1) 
+    1
+    (* n (factorial (dec n)))))  
+````
+Optimized to avoid stack overflow:
+````
+(defn factorial-optimized [n]
+  (loop [n n acc 1]
+    (if (= n 1) 
+        acc
+        (recur (dec n) (* acc n)))))
+````
