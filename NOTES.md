@@ -46,3 +46,23 @@
 - `if (CONDITION) THEN ELSE`
 - `case (EXPRESSION) VALUE1 THEN1 VALUE2 THEN2 DEFAULT`
 - `cond (CONDITION1) THEN1 (CONDITION2) THEN2 :else DEFAULT`
+
+## 10. Runtime polymorphism (function patter matching)
+
+By number of parameters:
+````
+(defn hello
+  ([] "Hello World!")
+  ([a] (str "Hello, you silly " a "."))
+  ([a & more] (str 
+    "Hello to this group: "
+    (apply str (interpose ", " (cons a more))) "!")))
+````
+
+By parameter value:
+````
+(defmulti diet (fn [x] (:eater x)))
+(defmethod diet :herbivore [{:keys [name]}] (str name " eats veggies."))
+(defmethod diet :carnivore [_a] "Simba eats animals.")
+(defmethod diet :default [_a] "I don't know what Rich Hickey eats.")
+````
