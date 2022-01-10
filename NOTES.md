@@ -92,3 +92,8 @@ Optimized to avoid stack overflow:
         acc
         (recur (dec n) (* acc n)))))
 ````
+
+## 15. Destructuring
+- For vectors: `fn [[first second & rest]] ...`
+- For maps: `fn [{variable :map-key}] ...`
+- For maps, shorter: `fn [{:keys [map-key1 map-key2]}] ...`
