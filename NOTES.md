@@ -36,8 +36,13 @@
 - `merge` to merge two maps: `merge {:a 1} {:b 2}`.
 - `vals` to get a list with the map values and `keys` for the keys.
 
-
 ## 7. Functions
-- `defn function-name [parameter1 parameter2] (implementation)`.
-- Or inline (anonymous): `fn [parameter1 parameter2] (implementation)`.
+- `defn function-name [PARAMETER1 PARAMETER2] (IMPLEMENTATION)`.
+- Or inline (anonymous): `fn [PARAMETER1 PARAMETER2] (IMPLMENTATION)`.
 - Shorter inline syntax to sum parameter 1 and 2: `#(+ &1 &2)`.
+
+## 8. Conditions
+- `if (CONDITION) THEN`
+- `if (CONDITION) THEN ELSE`
+- `case (EXPRESSION) VALUE1 THEN1 VALUE2 THEN2 DEFAULT`
+- `cond (CONDITION1) THEN1 (CONDITION2) THEN2 :else DEFAULT`
