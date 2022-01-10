@@ -35,3 +35,9 @@
 - `assoc` to add new elements to a map (actually, it creates a new map, everything is immutable in Clojure): `assoc {:a 1} :b 2`.
 - `merge` to merge two maps: `merge {:a 1} {:b 2}`.
 - `vals` to get a list with the map values and `keys` for the keys.
+
+
+## 7. Functions
+- `defn function-name [parameter1 parameter2] (implementation)`.
+- Or inline (anonymous): `fn [parameter1 parameter2] (implementation)`.
+- Shorter inline syntax to sum parameter 1 and 2: `#(+ &1 &2)`.
