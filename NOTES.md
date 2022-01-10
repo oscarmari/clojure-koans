@@ -17,7 +17,7 @@
 - Both `'(1 2 3)` and `(list 1 2 3)` are lists of 3 integers.
 - Lists are sequences of chained elements only the access to the first element is cheap.
 - What's the difference between `first` and `peek`? And between `rest` and `pop`? [SOLUTION] They are the same when applied to lists.
-- **[?]: What's `dracula` in the following list? A Symbol? `'(dracula)`**
+- : What's `dracula` in the following list? A Symbol? `'(dracula)`. **[SOLUTION] It's a symbol.** 
 
 ## 4. Vectors
 - Vectors are arrays and can be defined with `[]`: `[1 2 3]`.
@@ -28,3 +28,10 @@
 
 ## 5. Sets
 - Sets are mathematical sets (a collection without duplicates nor order) and they can be defined with `#{}`: `#{1 3 2}`.
+
+## 6. Maps
+- Hash maps are defined with `{}`: `{:key "value" "key2" 234 "value"}` (their keys can be anything, not only keywords).
+- Both keys and maps can be used as functions to retrieve elements: `(= 23 ({:a 23} :a) (:a {:a 23}))`.
+- `assoc` to add new elements to a map (actually, it creates a new map, everything is immutable in Clojure): `assoc {:a 1} :b 2`.
+- `merge` to merge two maps: `merge {:a 1} {:b 2}`.
+- `vals` to get a list with the map values and `keys` for the keys.
