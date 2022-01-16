@@ -47,7 +47,7 @@
 - `case (EXPRESSION) VALUE1 THEN1 VALUE2 THEN2 DEFAULT`
 - `cond (CONDITION1) THEN1 (CONDITION2) THEN2 :else DEFAULT`
 
-## 10. Runtime polymorphism (function patter matching)
+## 10. Runtime polymorphism (function pattern matching)
 
 By number of parameters:
 ````
@@ -97,3 +97,10 @@ Optimized to avoid stack overflow:
 - For vectors: `fn [[first second & rest]] ...`
 - For maps: `fn [{variable :map-key}] ...`
 - For maps, shorter: `fn [{:keys [map-key1 map-key2]}] ...`
+
+## 17. Atoms
+For mutable state.
+- Definition: `(def this-can-change (atom "foo")`
+- Getting its value: `@this-can-change`
+- Update: `(swap! this-can-change FUNCTION)` => `(swap! this-can-change inc)`
+- Update only if the atom has certain value: `(compare-and-set! this-can-change CURRENT_VALUE NEW VALUE)`=> Update the atom with NEW VALUE if and only if the current value is CURRENT_VALUE.
