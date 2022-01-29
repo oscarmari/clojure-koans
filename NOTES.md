@@ -104,3 +104,30 @@ For mutable state.
 - Getting its value: `@this-can-change`
 - Update: `(swap! this-can-change FUNCTION)` => `(swap! this-can-change inc)`
 - Update only if the atom has certain value: `(compare-and-set! this-can-change CURRENT_VALUE NEW VALUE)`=> Update the atom with NEW VALUE if and only if the current value is CURRENT_VALUE.
+
+## 18. Quotes
+Use `quote` or `'` before an expression to avoid evaluating it and consider it data instead. 
+- For example: `(= '(1 2 4) (quote (1 2 4)) [1 2 4])`
+- The syntax quote **\`** does the same but lets you "unquote" an expression with `~`:
+**(= [1 3] \`(1 ~(+ 1 2)))**
+
+## 20. Java interoperation
+- Use a leading dot for methods: `(= "FOO" (.toUpperCase "foo"))`.
+- Use a dot at the end to instantiate a class: `(= 23.0 (Float. "23"))`.
+- Use `Class/method` to call static methods: `(= 2.0 (Math/ceil 1.9))`
+
+## 22. Group by
+To generate a map of elements from a collection, grouped by the specified criteria: `(group-by FUNCTION COLLECTION)`
+- `(= {5 ["hello" "world"] 3 ["foo" "bar"]} (group-by count ["hello" "world" "foo" "bar"]))`
+
+You can also use a `key` to group-by over a collection of maps:
+- `(group-by :id [{:id 1 :name "Bob"} {:id 2 :name "Jennifer"} {:id 1 :last-name "Smith"} ])`
+
+## 24. Macros
+Functions created at compile time: `(defmacro NAME [PARAMS] LOGIC)`.
+
+This is interesting: `(macroexpand '(MACRONAME (9 2 1)))`. You can run a macro from data using `macroexpand` and a collection with the name of the macro as the first element.
+
+## 25. Threading macros (pipe operator)
+- `->` to pass the output of the previous function as the first parameter of the next one.
+- `->>` to pass the output of the previous function as the last parameter of the next one.
