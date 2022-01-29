@@ -131,3 +131,21 @@ This is interesting: `(macroexpand '(MACRONAME (9 2 1)))`. You can run a macro f
 ## 25. Threading macros (pipe operator)
 - `->` to pass the output of the previous function as the first parameter of the next one.
 - `->>` to pass the output of the previous function as the last parameter of the next one.
+
+## 27. Multimethods
+Similar to Elixir pattern matching, although not as easy to use IMHO (probably I don't understand how to use it properly yet).
+
+Given a fucntion within a pipe, that should do something different depeding on the result of the previous one (:ok, error pattern).
+
+**Elixir**
+```
+def whatever({:ok, data}), do: do_whatever(data);
+def whatever({:error, _}), do: log("something went wrong");
+```
+
+**Clojure**
+```
+(defmulti whatever (fn [{result _data}] result))
+(defmethod whatever :ok [_ data] do_whatever(data))
+(defmethod whatever :error [_ _] log_error("something went wrong"))
+```

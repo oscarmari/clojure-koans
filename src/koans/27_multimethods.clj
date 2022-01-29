@@ -42,3 +42,17 @@
  (= 6
     (multimethod-with-args :path-two {:first-opt 1
                                       :second-opt [0 1 2]})))
+
+
+(comment
+  (defn do_whatever [foo] (println foo))
+  (defn log_error [foo] (println (str "ERROR: " foo)))
+  
+  (defmulti whatever (fn [input] (first input)))
+  (defmethod whatever :ok [input] (do_whatever (last input)))
+  (defmethod whatever :error [_input] (log_error "something went wrong"))
+
+  (whatever [:ok, "this went well"])
+  (whatever [:error, "this didn't"])
+  (whatever [:foo, "this should raise an error"])
+  )
